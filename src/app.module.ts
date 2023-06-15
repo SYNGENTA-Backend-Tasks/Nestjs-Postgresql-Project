@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common';
-// import { AppController } from './app.controller';
-// import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from './User/User.entity';
 import { Address } from './Address/Address.entity';
-import seedUserAndAddressData from './Seeds/User-Address.seed';
+import { UserController } from './Controller/user.controller';
+import { UserService } from './Service/user.service';
+import { UserModule } from './Module/user.module';
 
 @Module({
   imports: [
+    UserModule,
     TypeOrmModule.forRootAsync({
       imports: [
         ConfigModule.forRoot({
@@ -25,19 +26,15 @@ import seedUserAndAddressData from './Seeds/User-Address.seed';
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_DATABASE'),
         entities: [User, Address],
-        // synchronize: true,
-        synchronize: configService.get<boolean>('DB_SYNC'),
+        synchronize: true,
+        // synchronize: configService.get<boolean>('DB_SYNC'),
       }),
       inject: [ConfigService],
     }),
+    TypeOrmModule.forFeature([User, Address]),
   ],
-  // controllers: [AppController],
-  // providers: [AppService],
-  controllers: [],
-  providers: [],
+  controllers: [UserController],
+  providers: [UserService],
 })
 export class AppModule {
-  constructor(){
-    seedUserAndAddressData();
-  }
 }
