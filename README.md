@@ -1,1 +1,3 @@
-# Nestjs-Postgresql-Project
+
+npm install
+npm run start:dev
