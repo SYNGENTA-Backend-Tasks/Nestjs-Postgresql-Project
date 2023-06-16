@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Address } from '../Address/Address.entity';
+import { Address } from 'src/address/Address.entity';
 
 @Entity()
 export class User {
@@ -9,6 +9,11 @@ export class User {
   @Column()
   name: string;
 
+  @Column()
+  addressedId: number;
+
   @ManyToOne(() => Address, (address) => address.users)
   address: Address;
+  static entity: any;
+
 }
