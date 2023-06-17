@@ -18,11 +18,11 @@ export class Address {
   @Column()
   pincode: string;
 
-  // @Column({ nullable: false })
-  // line1: string;
+  @Column({ nullable: false })
+  line1: string;
 
-  // @Column({ nullable: false })
-  // line2: string;
+  @Column({ nullable: false })
+  line2: string;
 
   @OneToMany(() => User, (user) => user.address)
   users: User[];
