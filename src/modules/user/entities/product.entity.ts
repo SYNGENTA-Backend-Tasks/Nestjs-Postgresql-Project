@@ -1,12 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, Column, ManyToOne } from 'typeorm';
 import { Category } from './category.entity';
 import { Color } from './color.entity';
+import { BaseEntity } from './BaseEntity';
 
 @Entity({ name: 'product_master' })
-export class Product {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class Product extends BaseEntity {
   @Column()
   name: string;
 

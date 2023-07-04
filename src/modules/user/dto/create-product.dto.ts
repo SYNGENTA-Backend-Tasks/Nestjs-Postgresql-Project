@@ -20,4 +20,13 @@ export class CreateProductDto {
   @IsNotEmpty()
   @IsNumber()
   discount: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  created_by: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  updated_by: string;
+
 }

@@ -15,11 +15,11 @@ import { Product } from '../entities/product.entity';
 export class ProductController {
   constructor(private productService: ProductService) {}
 
-  @Post('create')
+  @Post()
   async createProduct(@Body() createProductDto: CreateProductDto) {
     return this.productService.createProduct(createProductDto);
   }
-
+l
   @Get()
   async getAllProducts(): Promise<Product[]> {
     return this.productService.getAllProducts();

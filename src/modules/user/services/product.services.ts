@@ -17,22 +17,7 @@ export class ProductService {
   ) {}
 
   async createProduct(createProductDto: CreateProductDto): Promise<Product> {
-    const product = new Product();
-    product.name = createProductDto.name;
-    product.amount = createProductDto.amount;
-    product.discount = createProductDto.discount;
-
-    const category = await this.categoryRepository.findOne({
-      where: { id: createProductDto.categoryId },
-    });
-    product.category = category;
-
-    const color = await this.colorRepository.findOne({
-      where: { id: createProductDto.colorId },
-    });
-    product.color = color;
-
-    return this.productRepository.save(product);
+    return await this.productRepository.save(createProductDto);
   }
 
   async getAllProducts(): Promise<Product[]> {

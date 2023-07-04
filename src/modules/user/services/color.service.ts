@@ -12,8 +12,6 @@ export class ColorService {
   ) {}
 
   async createColor(createColorDto: CreateColorDto): Promise<Color> {
-    const color = new Color();
-    color.name = createColorDto.name;
-    return this.colorRepository.save(color);
+    return await this.colorRepository.save(createColorDto);
   }
 }
