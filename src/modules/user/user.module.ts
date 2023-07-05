@@ -56,7 +56,7 @@ import { PaymentService } from './services/payment.service';
     ColorService,
     OrderService,
     CustomerService,
-    PaymentService
+    PaymentService,
   ],
   exports: [
     UserService,
@@ -66,7 +66,7 @@ import { PaymentService } from './services/payment.service';
     ColorService,
     OrderService,
     CustomerService,
-    PaymentService
+    PaymentService,
   ],
 })
 export class UserModule {}
