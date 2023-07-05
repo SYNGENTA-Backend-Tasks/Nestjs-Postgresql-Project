@@ -1,7 +1,7 @@
 import { Entity, Column, ManyToOne } from 'typeorm';
 import { Category } from './category.entity';
 import { Color } from './color.entity';
-import { BaseEntity } from './BaseEntity';
+import { BaseEntity } from './base-entity';
 
 @Entity({ name: 'product_master' })
 export class Product extends BaseEntity {

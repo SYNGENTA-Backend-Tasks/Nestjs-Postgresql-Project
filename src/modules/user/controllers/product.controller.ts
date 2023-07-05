@@ -10,6 +10,7 @@ import {
 import { ProductService } from '../services/product.services';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { Product } from '../entities/product.entity';
+import { table } from 'console';
 
 @Controller('products')
 export class ProductController {
@@ -43,3 +44,7 @@ l
     return this.productService.deleteProduct(id);
   }
 }
+
+
+
+
