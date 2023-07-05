@@ -15,6 +15,15 @@ import { CategoryController } from './controllers/category.controller';
 import { ColorController } from './controllers/color.controller';
 import { CategoryService } from './services/category.service';
 import { ColorService } from './services/color.service';
+import { OrderController } from './controllers/order.controller';
+import { CustomerController } from './controllers/customer.controller';
+import { PaymentController } from './controllers/payment.controller';
+import { Customer } from './entities/customer.entity';
+import { Order } from './entities/order.entity';
+import { Payment } from './entities/payment.entity';
+import { OrderService } from './services/order.service';
+import { CustomerService } from './services/customer.service';
+import { PaymentService } from './services/payment.service';
 
 @Module({
   controllers: [
@@ -23,9 +32,21 @@ import { ColorService } from './services/color.service';
     ProductController,
     CategoryController,
     ColorController,
+    OrderController,
+    CustomerController,
+    PaymentController,
   ],
   imports: [
-    TypeOrmModule.forFeature([User, Address, Product, Category, Color]),
+    TypeOrmModule.forFeature([
+      User,
+      Address,
+      Product,
+      Category,
+      Color,
+      Order,
+      Payment,
+      Customer,
+    ]),
   ],
   providers: [
     UserService,
@@ -33,6 +54,9 @@ import { ColorService } from './services/color.service';
     ProductService,
     CategoryService,
     ColorService,
+    OrderService,
+    CustomerService,
+    PaymentService
   ],
   exports: [
     UserService,
@@ -40,6 +64,9 @@ import { ColorService } from './services/color.service';
     ProductService,
     CategoryService,
     ColorService,
+    OrderService,
+    CustomerService,
+    PaymentService
   ],
 })
 export class UserModule {}

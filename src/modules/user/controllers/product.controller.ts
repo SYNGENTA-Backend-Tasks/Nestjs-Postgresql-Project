@@ -10,7 +10,7 @@ import {
 import { ProductService } from '../services/product.services';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { Product } from '../entities/product.entity';
-import { table } from 'console';
+
 
 @Controller('products')
 export class ProductController {
@@ -20,7 +20,7 @@ export class ProductController {
   async createProduct(@Body() createProductDto: CreateProductDto) {
     return this.productService.createProduct(createProductDto);
   }
-l
+
   @Get()
   async getAllProducts(): Promise<Product[]> {
     return this.productService.getAllProducts();
